@@ -6,6 +6,7 @@ MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 
 # Install simp_le program
 COPY /install_simp_le.sh /app/install_simp_le.sh
+RUN apt-get update && apt-get -y dist-upgrade && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN chmod +rx /app/install_simp_le.sh && sync && /app/install_simp_le.sh && rm -f /app/install_simp_le.sh
 
 COPY letsencrypt_service letsencrypt_service_data.tmpl nginx.tmpl Procfile update_certs update_nginx /app/
