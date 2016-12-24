@@ -7,6 +7,8 @@ services:
       - "80:80"
     volumes:
       - /etc/nginx/conf.d
+     tmpfs:
+      - /tmp
 
   dockergen:
     image: jwilder/docker-gen
