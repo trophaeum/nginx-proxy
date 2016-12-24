@@ -1,8 +1,9 @@
-FROM nginx:1.11.6
+FROM nginx:1.11.7
 MAINTAINER Jason Wilder mail@jasonwilder.com
 
 # Install wget and install/updates certificates
 RUN apt-get update \
+ && apt-get dist-upgrade -y \
  && apt-get install -y -q --no-install-recommends \
     ca-certificates \
     wget \
