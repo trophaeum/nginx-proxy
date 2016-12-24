@@ -1,12 +1,14 @@
 version: '2'
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: tpurplepeopleeater/nginx-proxy
     container_name: nginx-proxy
     ports:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+     tmpfs:
+      - /tmp
 
   whoami:
     image: jwilder/whoami
